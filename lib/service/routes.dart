@@ -32,15 +32,15 @@ final GoRouter router = GoRouter(
             return const TasksPage();
           },
         ),
-        // GoRoute(
-        //   path: '/tasks/:id',
-        //   builder: (BuildContext context, GoRouterState state) {
-        //     final id = state.pathParameters['id'];
-        //     final tasklist = state.extra as List<Task>;
-        //     final task = tasklist.firstWhere((t) => t.id == id);
-        //     return TaskDetailPage(key: state.pageKey, task: task);
-        //   },
-        // ),
+        GoRoute(
+          path: '/tasks/:id',
+          builder: (BuildContext context, GoRouterState state) {
+            final id = state.pathParameters['id'];
+            final tasklist = state.extra as List<Task>;
+            final task = tasklist.firstWhere((t) => t.id == id);
+            return TaskDetailPage(key: state.pageKey, task: task);
+          },
+        ),
 
         /// Displayed when the second item in the the bottom navigation bar is
         /// selected.

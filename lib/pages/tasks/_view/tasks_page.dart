@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:task_list_app/common/app_style.dart';
 import 'package:task_list_app/pages/tasks/_view/tasks_detail_page.dart';
 import 'package:task_list_app/pages/tasks/notifiers/tasks_notifier.dart';
@@ -36,13 +37,8 @@ class TasksPage extends ConsumerWidget {
                 itemBuilder: (context, index) => Container(
                   margin: const EdgeInsets.all(8),
                   child: ListTile(
-                    // onTap: () =>
-                    //     context.go('/tasks/${data[index].id}', extra: data),
-                    onTap: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) =>
-                                TaskDetailPage(task: data[index]))),
+                    onTap: () =>
+                        context.go('/tasks/${data[index].id}', extra: data),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(6)),
                     tileColor: Colors.blueGrey[50],
