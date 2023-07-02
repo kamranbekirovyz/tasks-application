@@ -8,6 +8,7 @@ class Task with _$Task {
   const factory Task({
     required String? id,
     required String? title,
+    @Default(null) String? description,
     required DateTime? dateTime,
   }) = _Task;
 

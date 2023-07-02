@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ProjectsPage extends StatelessWidget {
   const ProjectsPage({Key? key}) : super(key: key);
@@ -7,7 +8,7 @@ class ProjectsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       // TODO: labels should be in app localization file
-      child: Text('Projects'),
+      child: Text(AppLocalizations.of(context).projects),
     );
   }
 }
