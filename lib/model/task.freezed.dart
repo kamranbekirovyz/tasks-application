@@ -22,6 +22,7 @@ Task _$TaskFromJson(Map<String, dynamic> json) {
 mixin _$Task {
   String? get id => throw _privateConstructorUsedError;
   String? get title => throw _privateConstructorUsedError;
+  String? get description => throw _privateConstructorUsedError;
   DateTime? get dateTime => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -34,7 +35,8 @@ abstract class $TaskCopyWith<$Res> {
   factory $TaskCopyWith(Task value, $Res Function(Task) then) =
       _$TaskCopyWithImpl<$Res, Task>;
   @useResult
-  $Res call({String? id, String? title, DateTime? dateTime});
+  $Res call(
+      {String? id, String? title, String? description, DateTime? dateTime});
 }
 
 /// @nodoc
@@ -52,6 +54,7 @@ class _$TaskCopyWithImpl<$Res, $Val extends Task>
   $Res call({
     Object? id = freezed,
     Object? title = freezed,
+    Object? description = freezed,
     Object? dateTime = freezed,
   }) {
     return _then(_value.copyWith(
@@ -62,6 +65,10 @@ class _$TaskCopyWithImpl<$Res, $Val extends Task>
       title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
+              as String?,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
               as String?,
       dateTime: freezed == dateTime
           ? _value.dateTime
@@ -77,7 +84,8 @@ abstract class _$$_TaskCopyWith<$Res> implements $TaskCopyWith<$Res> {
       __$$_TaskCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? id, String? title, DateTime? dateTime});
+  $Res call(
+      {String? id, String? title, String? description, DateTime? dateTime});
 }
 
 /// @nodoc
@@ -91,6 +99,7 @@ class __$$_TaskCopyWithImpl<$Res> extends _$TaskCopyWithImpl<$Res, _$_Task>
   $Res call({
     Object? id = freezed,
     Object? title = freezed,
+    Object? description = freezed,
     Object? dateTime = freezed,
   }) {
     return _then(_$_Task(
@@ -101,6 +110,10 @@ class __$$_TaskCopyWithImpl<$Res> extends _$TaskCopyWithImpl<$Res, _$_Task>
       title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
+              as String?,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
               as String?,
       dateTime: freezed == dateTime
           ? _value.dateTime
@@ -113,7 +126,11 @@ class __$$_TaskCopyWithImpl<$Res> extends _$TaskCopyWithImpl<$Res, _$_Task>
 /// @nodoc
 @JsonSerializable()
 class _$_Task implements _Task {
-  const _$_Task({this.id, this.title, this.dateTime});
+  const _$_Task(
+      {required this.id,
+      required this.title,
+      this.description = null,
+      required this.dateTime});
 
   factory _$_Task.fromJson(Map<String, dynamic> json) => _$$_TaskFromJson(json);
 
@@ -122,11 +139,14 @@ class _$_Task implements _Task {
   @override
   final String? title;
   @override
+  @JsonKey()
+  final String? description;
+  @override
   final DateTime? dateTime;
 
   @override
   String toString() {
-    return 'Task(id: $id, title: $title, dateTime: $dateTime)';
+    return 'Task(id: $id, title: $title, description: $description, dateTime: $dateTime)';
   }
 
   @override
@@ -136,13 +156,16 @@ class _$_Task implements _Task {
             other is _$_Task &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
             (identical(other.dateTime, dateTime) ||
                 other.dateTime == dateTime));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, title, dateTime);
+  int get hashCode =>
+      Object.hash(runtimeType, id, title, description, dateTime);
 
   @JsonKey(ignore: true)
   @override
@@ -160,9 +183,10 @@ class _$_Task implements _Task {
 
 abstract class _Task implements Task {
   const factory _Task(
-      {final String? id,
-      final String? title,
-      final DateTime? dateTime}) = _$_Task;
+      {required final String? id,
+      required final String? title,
+      final String? description,
+      required final DateTime? dateTime}) = _$_Task;
 
   factory _Task.fromJson(Map<String, dynamic> json) = _$_Task.fromJson;
 
@@ -170,6 +194,8 @@ abstract class _Task implements Task {
   String? get id;
   @override
   String? get title;
+  @override
+  String? get description;
   @override
   DateTime? get dateTime;
   @override
