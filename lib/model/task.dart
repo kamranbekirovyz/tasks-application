@@ -9,6 +9,7 @@ class Task with _$Task {
     required String? id,
     required String? title,
     required DateTime? dateTime,
+    required String? description,
   }) = _Task;
 
   factory Task.fromJson(Map<String, dynamic> json) => _$TaskFromJson(json);

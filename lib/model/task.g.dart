@@ -12,10 +12,12 @@ _$_Task _$$_TaskFromJson(Map<String, dynamic> json) => _$_Task(
       dateTime: json['dateTime'] == null
           ? null
           : DateTime.parse(json['dateTime'] as String),
+      description: json['description'] as String?,
     );
 
 Map<String, dynamic> _$$_TaskToJson(_$_Task instance) => <String, dynamic>{
       'id': instance.id,
       'title': instance.title,
       'dateTime': instance.dateTime?.toIso8601String(),
+      'description': instance.description,
     };
